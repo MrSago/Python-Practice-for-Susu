@@ -26,8 +26,10 @@ def fun(A, B, C):
     D = B**2 - 4*A*C
 
     if (D > 0):
-        res["x1"] = "%0.5f" % ((-B + sqrt(D)) / (2*A))
-        res["x2"] = "%0.5f" % ((-B - sqrt(D)) / (2*A))
+        x1 = "%0.5f" % ((-B + sqrt(D)) / (2*A))
+        x2 = "%0.5f" % ((-B - sqrt(D)) / (2*A))
+        res["x1"] = min(x1, x2)
+        res["x2"] = max(x1, x2)
     elif (D == 0):
         res["x1"] = "%0.5f" % (-B / (2*A))
 

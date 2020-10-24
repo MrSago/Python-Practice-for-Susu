@@ -20,6 +20,6 @@ def fun(Hotp, Motp, Hp, Mp):
     Mres = Msum % 60
     Hres = Hsum % 24
 
-    Dres = (Hsum + (Msum // 60)) // 24
+    Dres = Hp // 24
 
     return ("%s hours : %s minutes" % ('{:02}'.format(Hres), '{:02}'.format(Mres)) + "\n%d days" % Dres)

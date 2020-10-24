@@ -27,9 +27,9 @@ def moduleTest(a, b, step):
         b = float(b)
         step = float(step)
     except ValueError:
-        return("Неверно введены значения")
+        return ("Неверно введены значения")
     if (a > b or step <= 0):
-        return("Неверные условия теста!")
+        return ("Неверные условия теста!")
 
     resTable = PrettyTable()
     resTable.field_names = ["a", "b", "c", "Вид треугольника"]
