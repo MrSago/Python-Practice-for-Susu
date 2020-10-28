@@ -13,9 +13,9 @@ def moduleTest(a, b, step):
         b = int(b)
         step = int(step)
     except ValueError:
-        return("Неверно введены значения")
+        return ("Неверно введены значения")
     if (a > b or step <= 0):
-        return("Неверные условия теста!")
+        return ("Неверные условия теста!")
 
     resTable = PrettyTable()
     resTable.field_names = ["INPUT", "OUTPUT"]

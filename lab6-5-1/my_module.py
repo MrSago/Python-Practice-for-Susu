@@ -2,7 +2,7 @@
 import re, numpy as np
 
 
-def getInput():
+def getInputFromFile():
     f = open("input.txt", "r")
     str1 = f.readline()
     str2 = f.readline()
@@ -27,8 +27,9 @@ def PrintRectangle(a, b, file):
 
     f = open(file, "w")
     for i in range(len(m)):
-        for j in range(len(m[i])):
-            if (m[i][j]):
+        m_save = m[i]
+        for j in range(len(m_save)):
+            if (m_save[j]):
                 f.write('*')
             else:
                 f.write(' ')

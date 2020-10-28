@@ -12,21 +12,42 @@ def listPrint(lst):
         print("%d. %s" % (i + 1, lst[i]))
         i += 1
 
-def outFunc(fInput, check):
-    fo = open("output.txt", "w")
+def aboutNum(N):
+    return(
+        "Число: %s\n" % N +
+        "Количество цифр: %d\n" % len(N) +
+        "Сумма цифр: %d\n" % sum([int(i) for i in N]) +
+        "Произведение цифр: %d" % prod([int(i) for i in N])
+    )
 
-    if (not check):
+def outRes(fList, fInput, fOutput):
+    fo = open(fOutput, "w")
+
+    if (fInput in fList):
+        print("\"%s\" присутствует в текущей директории!" % fInput)
+    else:
+        print("Файл с входными данными не обнаружен")
         fo.write("Файл с входными данными не обнаружен")
         fo.close()
-        return (None)
+        return;
+
 
     fi = open(fInput, "r")
-    inNum = re.match(r'^\d+', fi.readline()).group(0)
+    inStr = fi.readline()
     fi.close()
 
-    fo.write("Число: %s\n" % inNum)
-    fo.write("Количество цифр: %d\n" % len(inNum))
-    fo.write("Сумма цифр: %d\n" % sum([int(i) for i in inNum]))
-    fo.write("Произведение цифр: %d\n" % prod([int(i) for i in inNum]))
+    try:
+        inNum = re.match(r'^\d+', inStr).group(0)
+    except AttributeError:
+        print("Число в файле не найдено!")
+        fo.write("Число в файле не найдено!")
+        fo.close()
+        return;
 
+    res = aboutNum(inNum)
+
+    fo.write(res)
     fo.close()
+
+    print(res)
+    print("Результат записан в файл: \"%s\"" % fOutput)

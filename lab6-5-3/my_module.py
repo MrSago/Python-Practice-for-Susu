@@ -1,5 +1,6 @@
 
 import os, re
+from time import time
 
 
 def fileListCurDir():
@@ -11,26 +12,59 @@ def listPrint(lst):
         print("%d. %s" % (i + 1, lst[i]))
         i += 1
 
-def outFunc(fInput, check):
-    fo = open("output.txt", "w")
+def primeNums(N):
+    num = int(N)
+    pr = []
+    lp = [0 for i in range(0, num + 1)]
 
-    if (not check):
+    i = 2
+    while (i <= num):
+        if (lp[i] == 0):
+            lp[i] = i
+            pr.append(i)
+        for p in pr:
+            if (p <= lp[i] and p*i <= num):
+                lp[p*i] = p
+            else:
+                break;
+        i += 1
+
+    return (pr)
+
+def outRes(fList, fInput, fOutput):
+    fo = open(fOutput, "w")
+
+    if (fInput in fList):
+        print("\"%s\" присутствует в текущей директории!" % fInput)
+    else:
+        print("Файл с входными данными не обнаружен")
         fo.write("Файл с входными данными не обнаружен")
         fo.close()
-        return (None)
+        return;
+
 
     fi = open(fInput, "r")
-    inNum = re.match(r'^\d+', fi.readline()).group(0)
+    inStr = fi.readline()
     fi.close()
 
-    for i in simpleNums(int(inNum)):
-        fo.write(str(i) + ' ')
+    try:
+        inNum = re.match(r'^\d+', inStr).group(0)
+    except AttributeError:
+        print("Число в файле не найдено!")
+        fo.write("Число в файле не найдено!")
+        fo.close()
+        return;
+    print("Вычисление простых чисел до: %s" % inNum)
 
+    start = time()
+    res = primeNums(inNum)
+    stop = time()
+
+    for i in res:
+        #print(i, end=' ')
+        fo.write(str(i) + ' ')
+    #print("")
     fo.close()
 
-def simpleNums(N):
-    nums = [2]
-    for num in range(3, N, 2):
-        if all(num % i != 0 for i in range(3, num, 2)):
-            nums.append(num)
-    return (nums)
+    print("Время вычисления: %f сек." % (stop - start))
+    print("Результат записан в файл: \"%s\"" % fOutput)
