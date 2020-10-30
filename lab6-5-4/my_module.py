@@ -28,38 +28,38 @@ def fun(R, x, y):
     return (count)
 
 def outRes(fList, fInput, fOutput):
-    fo = open(fOutput, "w")
+    with open(fOutput, "w") as fo:
+        if (fInput in fList):
+            print("\"%s\" присутствует в текущей директории!" % fInput)
+        else:
+            print("Файл с входными данными не обнаружен")
+            fo.write("Файл с входными данными не обнаружен")
+            return
 
-    if (fInput in fList):
-        print("\"%s\" присутствует в текущей директории!" % fInput)
-    else:
-        print("Файл с входными данными не обнаружен")
-        fo.write("Файл с входными данными не обнаружен")
-        fo.close()
-        return;
+        try:
+            with open(fInput, "r") as fi:
+                str1 = fi.readline()
+                str2 = fi.readline()
+        except IOError:
+            print("Ошибка чтения файла: \"%s\"" % fInput)
+            fo.write("Ошибка чтения файла: \"%s\"" % fInput)
+            return
 
-    fi = open("input.txt", "r")
-    str1 = fi.readline()
-    str2 = fi.readline()
-    fi.close()
+        try:
+            res = [int(re.match(r'^\d+$', str1).group(0))]
+            res += [int(i) for i in re.match(r'^\d+ \d+$', str2).group(0).split()]
+        except AttributeError:
+            print("Данные в файле не найдены!")
+            fo.write("Данные в файле не найдены!")
+            return;
 
-    try:
-        res = [int(re.match(r'^\d+$', str1).group(0))]
-        res += [int(i) for i in re.match(r'^\d+ \d+$', str2).group(0).split()]
-    except AttributeError:
-        print("Данные в файле не найдены!")
-        fo.write("Данные в файле не найдены!")
-        fo.close()
-        return;
+        start = time()
+        resFun = fun(res[0], res[1], res[2])
+        stop = time()
 
-    start = time()
-    resFun = fun(res[0], res[1], res[2])
-    stop = time()
+        resStr = datetime.now().strftime("%d.%m.%Y %H:%M") + '\n' + str(resFun) + '\n' + str('%f' % (stop - start))
+        fo.write(resStr)
 
-    resStr = datetime.now().strftime("%d.%m.%Y %H:%M") + '\n' + str(resFun) + '\n' + str('%f' % (stop - start))
-
-    fo.write(resStr)
-    fo.close()
 
     print("Данные из файла: R=%d (%d;%d)" % (res[0], res[1], res[2]))
     print(resStr)

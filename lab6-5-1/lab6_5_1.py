@@ -7,7 +7,9 @@ if __name__ == "__main__":
     print("Вариант №1")
     print("Прямоугольники и квадраты\n")
 
-    input = getInputFromFile()
+    fInput = "input.txt"
+    input = getInputFromFile(fInput)
+
     if (len(input) == 3):
         PrintRectangle(input[0], input[1], input[2])
         print("Прямоугольник из символов \'*\' со сторонами %s и %s сохранен в файл: \"%s\"" % (input[0], input[1], input[2]))

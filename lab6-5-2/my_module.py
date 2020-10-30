@@ -21,33 +21,31 @@ def aboutNum(N):
     )
 
 def outRes(fList, fInput, fOutput):
-    fo = open(fOutput, "w")
+    with open(fOutput, "w") as fo:
+        if (fInput in fList):
+            print("\"%s\" присутствует в текущей директории!" % fInput)
+        else:
+            print("Файл с входными данными не обнаружен")
+            fo.write("Файл с входными данными не обнаружен")
+            return
 
-    if (fInput in fList):
-        print("\"%s\" присутствует в текущей директории!" % fInput)
-    else:
-        print("Файл с входными данными не обнаружен")
-        fo.write("Файл с входными данными не обнаружен")
-        fo.close()
-        return;
+        try:
+            with open(fInput, "r") as fi:
+                inStr = fi.readline()
+        except IOError:
+            print("Ошибка чтения файла: \"%s\"" % fInput)
+            fo.write("Ошибка чтения файла: \"%s\"" % fInput)
+            return
 
+        try:
+            inNum = re.match(r'^\d+', inStr).group(0)
+        except AttributeError:
+            print("Число в файле не найдено!")
+            fo.write("Число в файле не найдено!")
+            return
 
-    fi = open(fInput, "r")
-    inStr = fi.readline()
-    fi.close()
-
-    try:
-        inNum = re.match(r'^\d+', inStr).group(0)
-    except AttributeError:
-        print("Число в файле не найдено!")
-        fo.write("Число в файле не найдено!")
-        fo.close()
-        return;
-
-    res = aboutNum(inNum)
-
-    fo.write(res)
-    fo.close()
+        res = aboutNum(inNum)
+        fo.write(res)
 
     print(res)
     print("Результат записан в файл: \"%s\"" % fOutput)
