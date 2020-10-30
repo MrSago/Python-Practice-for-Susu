@@ -70,4 +70,4 @@ def outRes(fList, fInput):
         print("Вызвано исключение: %s" % str(ex))
         return
 
-    print("Результат записан в файл: prod.txt")
+    print("Результаты записаны в файлы: A.txt, B.txt, prod.txt")
