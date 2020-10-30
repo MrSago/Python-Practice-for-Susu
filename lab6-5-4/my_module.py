@@ -51,7 +51,7 @@ def outRes(fList, fInput, fOutput):
         except AttributeError:
             print("Данные в файле не найдены!")
             fo.write("Данные в файле не найдены!")
-            return;
+            return
 
         start = time()
         resFun = fun(res[0], res[1], res[2])

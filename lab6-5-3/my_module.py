@@ -27,7 +27,7 @@ def primeNums(N):
             if (p <= lp[i] and p*i <= num):
                 lp[p*i] = p
             else:
-                break;
+                break
         i += 1
 
     return (pr)
@@ -54,7 +54,7 @@ def outRes(fList, fInput, fOutput):
         except AttributeError:
             print("Число в файле не найдено!")
             fo.write("Число в файле не найдено!")
-            return;
+            return
 
         print("Вычисление простых чисел до: %s" % inNum)
         start = time()
