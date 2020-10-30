@@ -18,7 +18,7 @@ def matrix_print(matrix, name, sz1, sz2):
     print("===================================================\n")
 
 def matrix_fun(N, M):
-    np.set_printoptions(precision=3, linewidth=200, floatmode = True)
+    np.set_printoptions(precision=3, linewidth=200, suppress=True)
     
     A = np.random.randint(-10.0, 10.0, (N, M))
     matrix_print(A, "A", N, M)
