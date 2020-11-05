@@ -18,8 +18,8 @@ def fun(R, x, y):
     R_kv = R**2
 
     for i in range(x-R, x):
+        x_i_kv = (x-i)**2
         for j in range(y-R, y):
-            x_i_kv = (x-i)**2
             if (x_i_kv + (y-j)**2 <= R_kv):
                 count += 1
 
