@@ -1,6 +1,6 @@
 
 import os, re, numpy as np
-import random
+from random import randint
 
 def fileListCurDir():
     return (os.listdir(os.getcwd()))
@@ -35,7 +35,7 @@ def matrix_fun(N, M):
             tmpnA[j] = tmpA[j] / tmpMax
     matrix_print(new_A, "new_A", N, M)
     
-    K = random.randint(5, 15)
+    K = randint(5, 15)
     B = np.random.randint(-10.0, 10.0, (M, K))
     np.savetxt("B.txt", B, "%i")
     matrix_print(B, "B", M, K)
