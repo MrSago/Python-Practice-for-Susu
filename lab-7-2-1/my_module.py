@@ -52,10 +52,8 @@ def AllowPath(x, y, step=1):
                 count += 1
         LensWays[count] = waylens
 
-    OpenWays.clear()
     if LensWays:
         x, y = LensWays[min(LensWays)]
-        LensWays.clear()
         return AllowPath(x, y, step+1)
 
     return result
@@ -68,7 +66,7 @@ def knightTour():
         X, Y = map(int, f.readline().split())
 
     with open("output.txt", "w") as f:
-        if (M*N % 2 != 0 and X+Y % 2 != 0):
+        if ((M*N) % 2 != 0 and (X+Y) % 2 != 0):
             f.write("Маршрут не существует")
             return
 
