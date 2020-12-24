@@ -81,7 +81,7 @@ def knightTour():
             f.write("Маршрут не существует")
             return
 
-        for i in range(M):
+        for i in range(N):
             for j in result[i]:
                 f.write(f"{j:{len(str(N*M))}}" + ' ')
             f.write('\n')
