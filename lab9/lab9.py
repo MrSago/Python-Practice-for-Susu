@@ -7,8 +7,8 @@ from time import time
 from warnings import filterwarnings
 filterwarnings("error")
 
+fnInput = "input.txt"
 #======Variant #1======
-inpFn = "input.txt"
 N = 50000
 P = 4
 M = 60
@@ -16,7 +16,7 @@ funSort = sort.bubbleSort
 #======================
 
 def generateRandomArray(count):
-    with open(inpFn, "w") as f:
+    with open(fnInput, "w") as f:
         for i in range(0, count):
             f.write(str(randint(-1000000, 1000000)) + '\n')
 
@@ -26,7 +26,7 @@ def createFiles(N, M):
     B = open("B.txt", "w")
     curFile = A
     for i in range(0, ceil(N / M)):
-        arr = numpy.loadtxt(inpFn, numpy.int, skiprows=i*M, max_rows=M)
+        arr = numpy.loadtxt(fnInput, numpy.int, skiprows=i*M, max_rows=M)
         funSort(arr)
         numpy.savetxt(curFile, arr, "%i", delimiter='\n')
         if (flag):
@@ -89,7 +89,7 @@ def polyPhaseMerge(M):
     fnD = "D.txt"
     modeAB = "r"
     modeCD = "w"
-    lastOutFn = ""
+    lastOutFn = fnC
     flag = True
 
     while (size < N):
@@ -120,7 +120,7 @@ def polyPhaseMerge(M):
                 curOut = C
             elif (curOut == A):
                 curOut = B
-            elif (curOut == B):
+            else:
                 curOut = A
 
         A.close()
@@ -135,10 +135,11 @@ def polyPhaseMerge(M):
 generateRandomArray(N)
 start = time()
 createFiles(N, M)
-fNameResult = polyPhaseMerge(M)
+fnResult = polyPhaseMerge(M)
 stop = time()
+chk = checkIsSortedFile(fnResult)
 
-print("Input file: %s" % inpFn)
-print("Result in file: %s" % fNameResult)
+print("Input file: %s" % fnInput)
+print("Result in file: %s" % fnResult)
 print("Time sorting: %f" % (stop - start))
-print("Is sorted: %r" % checkIsSortedFile(fNameResult))
+print("Is sorted: %r" % chk)
