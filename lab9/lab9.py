@@ -8,9 +8,9 @@ from warnings import filterwarnings
 filterwarnings("error")
 
 fnInput = "input.txt"
+P = 4
 #======Variant #1======
 N = 50000
-P = 4
 M = 60
 funSort = sort.bubbleSort
 #======================
@@ -132,14 +132,18 @@ def polyPhaseMerge(M):
     return lastOutFn
 
 
+
 generateRandomArray(N)
+
 start = time()
 createFiles(N, M)
 fnResult = polyPhaseMerge(M)
 stop = time()
+
 chk = checkIsSortedFile(fnResult)
 
 print("Input file: %s" % fnInput)
+print("Parametrs:\n\tP = %d\n\tN = %d\n\tM = %d\n\tFunction sort: %s" % (P, N, M, funSort.__name__))
 print("Result in file: %s" % fnResult)
 print("Time sorting: %f" % (stop - start))
 print("Is sorted: %r" % chk)
