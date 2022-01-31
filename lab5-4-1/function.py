@@ -15,3 +15,4 @@ def fun(a, b, c):
         return (2) #равнобедренный
     else:
         return (3) #общего вида
+

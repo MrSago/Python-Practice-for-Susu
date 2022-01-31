@@ -6,7 +6,6 @@ def simpleTest(a):
     res = fun(a)
     return ("r = %s * 1/12 * sqrt(3) * (3 + sqrt(5)) = %s" % (a, res))
 
-
 def moduleTest(a, b, step):
     try:
         a = float(a)
@@ -27,3 +26,4 @@ def moduleTest(a, b, step):
 
     res = "\nДиапазон: [%g; %g]\nШаг: %g\n" % (a, b, step) + resTable.get_string()
     return (res)
+

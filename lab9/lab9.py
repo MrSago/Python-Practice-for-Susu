@@ -147,3 +147,4 @@ print("Parametrs:\n\tP = %d\n\tN = %d\n\tM = %d\n\tFunction sort: %s" % (P, N, M
 print("Result in file: %s" % fnResult)
 print("Time sorting: %f" % (stop - start))
 print("Is sorted: %r" % chk)
+

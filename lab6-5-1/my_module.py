@@ -1,7 +1,6 @@
 
 import re, numpy as np
 
-
 def getInputFromFile(fInput):
     try:
         with open(fInput, "r") as f:
@@ -44,3 +43,4 @@ def PrintRectangle(a, b, fOutput):
 
 def PrintSquare(a, fOutput):
     PrintRectangle(a, a, fOutput)
+

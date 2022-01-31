@@ -2,7 +2,6 @@
 from function import fun
 from prettytable import PrettyTable
 
-
 def simpleTest(A, B, C):
     fRes = fun(A, B, C)
     if (fRes["x1"] != "-" and fRes["x2"] != "-"):
@@ -50,3 +49,4 @@ def moduleTest(a, b, step):
 
     res = "\nДиапазон: [%g; %g]\nШаг: %g\n" % (a, b, step) + resTable.get_string()
     return (res)
+

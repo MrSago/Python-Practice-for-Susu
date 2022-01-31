@@ -1,7 +1,6 @@
 
 from ModuleTest import simpleTest, moduleTest
 
-
 def startMenu():
     while (True):
         print("\nВыберите действие:")
@@ -31,3 +30,4 @@ def inputModuleTest():
     step = input("step = ")
     res = moduleTest(a, b, step)
     print(res)
+

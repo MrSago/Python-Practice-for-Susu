@@ -133,3 +133,4 @@ def quickSort(ptrArray):
     start = time()
     recQs(ptrArray, 0, len(ptrArray) - 1)
     return time() - start
+

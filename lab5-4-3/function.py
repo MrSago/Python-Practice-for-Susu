@@ -23,3 +23,4 @@ def fun(Hotp, Motp, Hp, Mp):
     Dres = Hp // 24
 
     return ("%s hours : %s minutes" % ('{:02}'.format(Hres), '{:02}'.format(Mres)) + "\n%d days" % Dres)
+

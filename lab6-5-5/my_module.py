@@ -71,3 +71,4 @@ def outRes(fList, fInput):
         return
 
     print("Результаты записаны в файлы: A.txt, B.txt, prod.txt")
+

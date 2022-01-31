@@ -2,7 +2,6 @@
 import os, re
 from time import time
 
-
 def fileListCurDir():
     return (os.listdir(os.getcwd()))
 
@@ -68,3 +67,4 @@ def outRes(fList, fInput, fOutput):
 
     print("Время вычисления: %f сек." % (stop - start))
     print("Результат записан в файл: \"%s\"" % fOutput)
+

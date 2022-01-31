@@ -2,7 +2,6 @@
 from function import fun
 from prettytable import PrettyTable
 
-
 def simpleTest(sum):
     res = fun(sum)
     return (res)
@@ -27,3 +26,4 @@ def moduleTest(a, b, step):
 
     res = resTable.get_string()
     return (res)
+

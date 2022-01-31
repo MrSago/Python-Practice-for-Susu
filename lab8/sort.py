@@ -75,7 +75,6 @@ def mergeSort(ptrArray):
 
         return arr
 
-
     start = time()
     tmp = recMs(ptrArray)
     stop = time()
@@ -129,7 +128,7 @@ def quickSort(ptrArray):
                 recQs(arr, p + 1, high)
                 high = p
 
-
     start = time()
     recQs(ptrArray, 0, len(ptrArray) - 1)
     return time() - start
+

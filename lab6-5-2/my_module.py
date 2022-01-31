@@ -2,7 +2,6 @@
 import os, re
 from numpy import prod
 
-
 def fileListCurDir():
     return (os.listdir(os.getcwd()))
 
@@ -49,3 +48,4 @@ def outRes(fList, fInput, fOutput):
 
     print(res)
     print("Результат записан в файл: \"%s\"" % fOutput)
+

@@ -3,7 +3,6 @@ import os, re
 from time import time
 from datetime import datetime
 
-
 def fileListCurDir():
     return (os.listdir(os.getcwd()))
 
@@ -64,3 +63,4 @@ def outRes(fList, fInput, fOutput):
     print("Данные из файла: R=%d (%d;%d)" % (res[0], res[1], res[2]))
     print(resStr)
     print("Результат записан в файл: \"%s\"" % fOutput)
+

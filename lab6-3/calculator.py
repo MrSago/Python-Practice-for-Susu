@@ -9,3 +9,4 @@ class Calculator:
 
     def get_current(self): 
         return self.current
+

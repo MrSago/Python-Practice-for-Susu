@@ -1,6 +1,5 @@
 
-from math import exp, sqrt
-
+from math import sqrt
 
 def fun(a):
     try:
@@ -12,3 +11,4 @@ def fun(a):
         return ("[out of range]")
 
     return (str(a * (1/12) * sqrt(3) * (3 + sqrt(5))))
+

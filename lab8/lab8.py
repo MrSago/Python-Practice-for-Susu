@@ -3,7 +3,6 @@ import sort
 from random import randint
 from prettytable import PrettyTable
 
-
 def initTestArrays(N):
     arr = [[], [], []]
     arr[0] = [int(i) for i in range(1, N + 1, 1)]
@@ -51,3 +50,4 @@ def startSort():
 
 if __name__ == "__main__":
     startSort()
+

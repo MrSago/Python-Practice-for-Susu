@@ -2,7 +2,6 @@
 from function import fun
 from prettytable import PrettyTable
 
-
 def funRes(res):
     if (res == -1):
         return ("Неверно введены значения")
@@ -47,3 +46,4 @@ def moduleTest(a, b, step):
 
     res = "\nДиапазон: [%g; %g]\nШаг: %g\n" % (a, b, step) + resTable.get_string()
     return (res)
+

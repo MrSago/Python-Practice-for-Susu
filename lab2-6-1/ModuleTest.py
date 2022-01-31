@@ -2,7 +2,6 @@
 from function import fun
 from prettytable import PrettyTable
 
-
 def simpleTest(x):
     res = fun(x)
     return ("y = exp^(sqrt(%s+sqrt(%s))) = %s" % (x, x, res))
@@ -27,3 +26,4 @@ def moduleTest(a, b, step):
 
     res = "\nДиапазон: [%g; %g]\nШаг: %g\n" % (a, b, step) + resTable.get_string()
     return (res)
+

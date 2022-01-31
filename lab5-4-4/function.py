@@ -51,3 +51,4 @@ def fun(sum):
     if (Kop != 0):
         res += "%d %s" % (Kop, strKop)
     return (res)
+

@@ -1,7 +1,6 @@
 
 from math import sqrt
 
-
 def fun(A, B, C):
     res = {"A": "-", "B": "-", "C": "-", "x1": "-", "x2": "-"}
 
@@ -49,3 +48,4 @@ def fun(A, B, C):
         res["x1"] = "%0.5f" % (x1)
 
     return (res)
+
